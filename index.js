@@ -5,6 +5,8 @@
  */
 const express = require("express");
 const path = require("path");
+const cases = require("./data/cases");
+const caseDetails = require("./data/caseDetails");
 /**
  * App Variables
  */
@@ -20,19 +22,12 @@ const port = process.env.PORT || 8000;
  * Routes Definition
  */
 
-app.get("/daily-cases", (req, res) => {
-  res.status(200).json({
-    dailyCases: [
-      {
-        date: "2016-03-26",
-        cases: "78"
-      },
-      {
-        date: "2016-03-26",
-        cases: "78"
-      }
-    ]
-  });
+app.get("/api/cases", (req, res) => {
+  res.status(200).json(cases);
+});
+
+app.get("/api/case-details", (req, res) => {
+  res.status(200).json(caseDetails);
 });
 
 /**
